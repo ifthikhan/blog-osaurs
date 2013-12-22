@@ -2,7 +2,9 @@
 
 import os
 from collections import defaultdict
+
 from flask import Flask
+from markdown import markdown
 
 POSTS_PATH = "posts"
 
@@ -46,7 +48,13 @@ class Post(object):
         self.slug = slug
         self.published = published
         self.tags = tags
-        self.body = body
+        self._body = body
+
+    @property
+    def body(self, html=True):
+        if html:
+            return markdown(self._body)
+        return self._body
 
     def to_dict(self):
         return {"title": self.title, "body": self.body, "slug": self.slug,
