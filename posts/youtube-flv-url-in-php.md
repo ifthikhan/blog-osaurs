@@ -19,7 +19,7 @@ to fetch the details of the video. The URL for this call is
 
 A request to the above url with a video id suffixed will bring a whole host of
 details regarding the video. The data sent back by the server is in the form of
-a query string (key/value pairs seperated by an “&”). Details include title,
+a query string (key/value pairs seperated by an "&"). Details include title,
 rating, url to the thumbnail, a map of urls to flv for different resolutions
 and much more.
 
@@ -29,21 +29,20 @@ and much more.
     ...
     &allow_ratings=0
 
-The URLs’ are seperated by “|”, and further each url is suffixed by a “,” and a
+The URLs' are seperated by "|", and further each url is suffixed by a "," and a
 number. A while back YouTube started offering videos to be viewed in various
 resolutions. The number after the comma is the quality value. Wikipedia has a
 table of these numbers and the resolutions.
 
-My initial thought was to explode the response string by “&” and query the
+My initial thought was to explode the response string by "&" and query the
 values for any given key. This is not possible since the values themselves have
-urls with query strings and exploding by “&” will not yield the required
+urls with query strings and exploding by "&" will not yield the required
 results. This baffled me as there have to be someway the player is able to put
 this string into a data structure and query the required values from it. I
 thought for a while but could not come up with anything apart from regex
 pattern matching.
 
 I wrapped the necessary call to fetch the data from the above url and to obtain
-the url to the flv’s in a class called YouTube_VideoInfo. Feel free to download
+the url to the flv's in a class called YouTube_VideoInfo. Feel free to download
 it and use it for your projects or requirements. You can download the code from
 here
-
