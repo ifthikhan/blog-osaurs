@@ -16,11 +16,11 @@ def home():
     html = ["<h1>Blog-osaurs</h1>"]
     posts = _get_posts_list()
     for p in posts:
-        html.append(_render_post(p))
+        html.append(_render_excerpt(p))
     return "\n".join(html)
 
 
-@app.route("/post/<slug>", methods=['GET'])
+@app.route("/posts/<slug>", methods=['GET'])
 def display_post(slug):
     p = Post.from_file("{}.md".format(slug))
     return _render_post(p)
@@ -33,6 +33,17 @@ def _render_post(post):
 {post.body}
 <p>{post.tags}</p>
 """.format(post=post)
+
+def _render_excerpt(post):
+    path = post.slug[:-3]
+    return """
+<h2>{post.title}</h2>
+<!-- <p>On: {post.published}</p>
+{post.excerpt} -->
+<p>{post.tags}</p>
+<p><a href="/posts/{path}">More &raquo;</a>
+""".format(post=post, path=path)
+
 
 
 def _get_posts_list():
@@ -51,10 +62,18 @@ class Post(object):
         self._body = body
 
     @property
+    def excerpt_marker(self):
+        return "[:more:]"
+
+    @property
     def body(self, html=True):
         if html:
             return markdown(self._body)
         return self._body
+
+    @property
+    def excerpt(self):
+        return self.body.split(self.excerpt_marker)[0]
 
     def to_dict(self):
         return {"title": self.title, "body": self.body, "slug": self.slug,
