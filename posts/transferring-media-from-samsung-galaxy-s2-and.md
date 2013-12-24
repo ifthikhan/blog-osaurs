@@ -7,6 +7,8 @@ awesome camera), however transferring from the phone to the laptop has always
 been a painful core. The usual requirement would be to get out of the chair
 (lazy :)) and grab the chord or go about searching for it.
 
+<more/>
+
 When I was travelling few days back with my roommate I managed to
 exchange some pictures between our phones via bluetooth and thought the same
 would be nice to transfer data between the phone and the laptop.

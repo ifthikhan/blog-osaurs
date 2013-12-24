@@ -10,7 +10,7 @@ A while back I was reading the [Computer Science A Programmers Perspective
 book and came across an exercise for mirroring the bit representation
 for a given integer.
 
-[:more:]
+<more/>
 
 Here goes my solution for it
 

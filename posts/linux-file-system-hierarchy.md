@@ -13,7 +13,7 @@ will unfold:
 
 > Everything is in its place, and there is a place for everything.
 
-[:more:]
+<more/>
 
 I bumped into an article explaining the Linux explaning the file system
 hierarchy at [GeekStuff.com](http://http://www.thegeekstuff.com/) and found

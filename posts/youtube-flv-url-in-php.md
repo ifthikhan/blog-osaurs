@@ -7,7 +7,8 @@ video URL. The details were Title, Description and the URL of the FLV video
 stream. Details such as Title and Description can be retreived by using a
 library such as Zend_Gdata_YouTube. However finding out the url of the FLV
 stream is tricky.
-[:more:]
+
+<more/>
 
 Googling for "getting flv url from youtube" brought me some results, almost all
 of them were outdated. I had no choice but to roll-up my sleeves and figure it

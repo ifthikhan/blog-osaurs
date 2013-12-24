@@ -14,7 +14,7 @@ selection. You can select a column of text vertically and delete or substitue
 them. I knew on how to delete the selected column but did not figure out on how
 to substitute the selection.
 
-[:more:]
+<more/>
 
 ![Block selection](/static/bffd5-screenshot-scaled1000.png)
 

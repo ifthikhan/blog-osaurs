@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def home():
-    html = ["<h1>Blog-osaurs</h1>"]
+    html = ["<h1>Blog-osaurs: I ain't doing a shit, cos I am a dinosour</h1>"]
     posts = _get_posts_list()
     for p in posts:
         html.append(_render_excerpt(p))
@@ -38,8 +38,8 @@ def _render_excerpt(post):
     path = post.slug[:-3]
     return """
 <h2>{post.title}</h2>
-<!-- <p>On: {post.published}</p>
-{post.excerpt} -->
+<p>On: {post.published}</p>
+{post.excerpt}
 <p>{post.tags}</p>
 <p><a href="/posts/{path}">More &raquo;</a>
 """.format(post=post, path=path)
@@ -63,7 +63,7 @@ class Post(object):
 
     @property
     def excerpt_marker(self):
-        return "[:more:]"
+        return "<more/>"
 
     @property
     def body(self, html=True):

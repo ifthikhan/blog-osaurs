@@ -8,7 +8,7 @@ motivation to write about them.
 In order to break the ice I wanted to write-up on one of the tools which I have
 been using lately and am pretty excited about "GNU Screen".
 
-[:more:]
+<more/>
 
 Previously whenever I wanted to multi-task on the command line: login to a
 remote server, edit code (VIM), monitor logs, perform adhoc tasks etc... (sounds

@@ -8,8 +8,7 @@ to encounter this one. I first encountered this question at
 The complete question is:
 
 > Given an array of 1s and 0s arrange the 1s together and 0s together in a single scan of the array. Optimize the boundary conditions.
-
-[:more:]
+<more/>
 
 I attempted to solve the problem using python.
 

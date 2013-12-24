@@ -9,7 +9,7 @@ I wanted to take a jab at solving this issue by using the collective
 intelligence of the internets :) and came across a couple of solutions in the
 Ubuntu forum. One of them worked for my case.
 
-[:more:]
+<more/>
 
 All I had to do was edit my xorg.conf file and add the following settings
 

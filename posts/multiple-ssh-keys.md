@@ -11,6 +11,8 @@ Enter the world of SSH config and simplify your life :)
 Assuming that you know nothing about working with ssh keys I will walk you
 through the entire process.
 
+<more/>
+
 1. Generate a pair of public private keys in your local machine.
 
         $ ssh-keygen -tr

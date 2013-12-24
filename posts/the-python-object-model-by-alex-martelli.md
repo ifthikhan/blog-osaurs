@@ -7,7 +7,7 @@ Tags: Python, Video
 A great presentation by Alex Martelli where he describes python's object model
 in detail. The talk is divided into 4 major parts:
 
-[:more:]
+<more/>
 
 1. Package State and Behaviour
 2. Delegation

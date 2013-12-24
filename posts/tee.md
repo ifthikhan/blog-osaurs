@@ -6,6 +6,8 @@ I have come across "TEE" few times but never found a compelling reason to use.
 Sure I have heard about parallelizing operations when working with large files
 but never came up with a use-case specific to my situation until today.
 
+<more/>
+
 I was configuring the iptables rules of a Linux server and encountered the
 following when try to save:
 
