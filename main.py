@@ -2,6 +2,7 @@
 
 import os
 from collections import defaultdict
+from datetime import datetime
 
 from flask import Flask, render_template
 from flaskext.markdown import Markdown
@@ -16,6 +17,7 @@ Markdown(app)
 @app.route("/", methods=['GET'])
 def home():
     posts = _get_posts_list()
+    posts = sorted(posts, key=lambda p: p.published, reverse=True)
     return render_template("home.html", posts=posts)
 
 
@@ -35,8 +37,8 @@ class Post(object):
     def __init__(self, title, body, slug, published, tags):
         self.title = title
         self.slug = slug
-        #TODO: Wrap it in datetime
-        self.published = published
+        self.published = datetime.strptime(published,
+                                           "%d-%m-%Y")
         self.tags = tags
         self.body = body
 
@@ -67,6 +69,8 @@ class Post(object):
         out["published"] = lines.pop(0).split(":")[1]
         out["tags"] = lines.pop(0).split(":")[1]
         out["body"] = "\n".join(lines)
+
+        out = {k: v.strip() for k, v in out.items()}
         return out
 
 
