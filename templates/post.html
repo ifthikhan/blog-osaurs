@@ -6,6 +6,6 @@
     <h2>{{ post.title }}</h2>
     <p class="published">Posted on:
     {{ post.published|date }}</p>
-    {% autoescape false %} {{ post.body|markdown }} {% endautoescape %}
+    {% autoescape false %} {{ post.body|youtube_embed|markdown }} {% endautoescape %}
     <!--<p> {{ post.tags }}-->
 {% endblock %}

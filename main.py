@@ -3,6 +3,7 @@
 import os
 from collections import defaultdict
 from datetime import datetime
+import re
 
 from flask import Flask, render_template
 from flaskext.markdown import Markdown
@@ -14,12 +15,39 @@ app = Flask(__name__)
 Markdown(app)
 
 
+def sub_youtube_link(content, sub=None):
+    """Substitute youtube link with embed tags"""
+
+    if not isinstance(content, (str, unicode)):
+        raise ValueError("Only strings are accepted")
+
+    if not content:
+        return ""
+
+    if sub is None:
+        sub = """<iframe width="560" height="315"
+        src="//www.youtube.com/embed/{}" frameborder="0"
+        allowfullscreen></iframe>"""
+
+    pattern = '(?:http://)?(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be\/)(\w+)'
+    def repl(matchobj):
+        return sub.format(matchobj.group(1))
+
+    return re.sub(pattern, repl, content, flags=re.IGNORECASE)
+
+
+@app.template_filter('youtube_embed')
+def _jinja_youtube_embed_filter(content):
+    return sub_youtube_link(content)
+
+
 @app.template_filter('date')
 def _jinja_datetime_filter(date, fmt=None):
     if fmt is None:
         fmt = "%Y-%m-%d"
         fmt = "%d %b,  %Y"
     return date.strftime(fmt)
+
 
 
 @app.route("/", methods=['GET'])
@@ -64,6 +92,7 @@ class Post(object):
 
     @classmethod
     def from_file(cls, filename):
+        #TODO: Sanitize the filename
         data = open("{}/{}".format(POSTS_PATH, filename)).read()
         post_map = cls.parse_from_str(data)
         post_map["slug"] = filename

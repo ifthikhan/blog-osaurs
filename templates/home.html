@@ -9,7 +9,7 @@
             <h3><a href="/posts/{{ post.path}}">{{ post.title }}</a></h3>
             <p class="published">Posted on:
             {{ post.published|date }}</p>
-            {% autoescape false %} {{ post.excerpt|markdown }} {% endautoescape %}
+            {% autoescape false %} {{ post.excerpt|youtube_embed|markdown }} {% endautoescape %}
             <p><a href="/posts/{{ post.path}}">More &raquo;</a>
             <!--<p>Tags: {{ post.tags }}</p>-->
         </li>
