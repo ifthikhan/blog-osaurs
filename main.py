@@ -14,6 +14,14 @@ app = Flask(__name__)
 Markdown(app)
 
 
+@app.template_filter('date')
+def _jinja_datetime_filter(date, fmt=None):
+    if fmt is None:
+        fmt = "%Y-%m-%d"
+        fmt = "%d %b,  %Y"
+    return date.strftime(fmt)
+
+
 @app.route("/", methods=['GET'])
 def home():
     posts = _get_posts_list()
