@@ -4,11 +4,13 @@ import os
 from collections import defaultdict
 
 from flask import Flask, render_template
-from markdown import markdown
+from flaskext.markdown import Markdown
+
 
 POSTS_PATH = "posts"
 
 app = Flask(__name__)
+Markdown(app)
 
 
 @app.route("/", methods=['GET'])
@@ -24,12 +26,10 @@ def display_post(slug):
 
 
 def _get_posts_list():
-    #return [Post.from_file("hello-world.md")]
     return [Post.from_file(f) for f in os.listdir(POSTS_PATH)
             if f.endswith("md")]
 
 
-# TODO: Python documentation from within.
 class Post(object):
 
     def __init__(self, title, body, slug, published, tags):
@@ -38,17 +38,11 @@ class Post(object):
         #TODO: Wrap it in datetime
         self.published = published
         self.tags = tags
-        self._body = body
+        self.body = body
 
     @property
     def excerpt_marker(self):
         return "<more/>"
-
-    @property
-    def body(self, html=True):
-        if html:
-            return markdown(self._body)
-        return self._body
 
     @property
     def excerpt(self):
@@ -57,10 +51,6 @@ class Post(object):
     @property
     def path(self):
         return self.slug[:-3]
-
-    def to_dict(self):
-        return {"title": self.title, "body": self.body, "slug": self.slug,
-                "published": self.published, "tags": self.tags}
 
     @classmethod
     def from_file(cls, filename):
