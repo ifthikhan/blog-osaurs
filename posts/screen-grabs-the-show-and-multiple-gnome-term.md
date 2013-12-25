@@ -1,4 +1,4 @@
-Title: Screen grabs the show and multiple gnome terminal tabs out...
+Title: Screen grabs the show and multiple gnome terminal tabs out
 Published: 1-05-2012
 Tags: Linux, CLI
 

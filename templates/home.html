@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block content %}
+    <ol id="posts">
+    {% for post in posts %}
+        <li>
+            <h3><a href="/posts/{{ post.path}}">{{ post.title }}</a></h3>
+            <p class="published">Posted on: {{ post.published }}</p>
+            {% autoescape false %} {{ post.excerpt }} {% endautoescape %}
+            <p><a href="/posts/{{ post.path}}">More &raquo;</a>
+            <!--<p>Tags: {{ post.tags }}</p>-->
+        </li>
+    {% endfor %}
+    </ol>
+{% endblock %}

@@ -3,7 +3,7 @@
 import os
 from collections import defaultdict
 
-from flask import Flask
+from flask import Flask, render_template
 from markdown import markdown
 
 POSTS_PATH = "posts"
@@ -13,40 +13,18 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def home():
-    html = ["<h1>Blog-osaurs: I ain't doing a shit, cos I am a dinosour</h1>"]
     posts = _get_posts_list()
-    for p in posts:
-        html.append(_render_excerpt(p))
-    return "\n".join(html)
+    return render_template("home.html", posts=posts)
 
 
 @app.route("/posts/<slug>", methods=['GET'])
 def display_post(slug):
-    p = Post.from_file("{}.md".format(slug))
-    return _render_post(p)
-
-
-def _render_post(post):
-    return """
-<h2>{post.title}</h2>
-<p>On: {post.published}</p>
-{post.body}
-<p>{post.tags}</p>
-""".format(post=post)
-
-def _render_excerpt(post):
-    path = post.slug[:-3]
-    return """
-<h2>{post.title}</h2>
-<p>On: {post.published}</p>
-{post.excerpt}
-<p>{post.tags}</p>
-<p><a href="/posts/{path}">More &raquo;</a>
-""".format(post=post, path=path)
-
+    post = Post.from_file("{}.md".format(slug))
+    return render_template("post.html", post=post)
 
 
 def _get_posts_list():
+    #return [Post.from_file("hello-world.md")]
     return [Post.from_file(f) for f in os.listdir(POSTS_PATH)
             if f.endswith("md")]
 
@@ -57,6 +35,7 @@ class Post(object):
     def __init__(self, title, body, slug, published, tags):
         self.title = title
         self.slug = slug
+        #TODO: Wrap it in datetime
         self.published = published
         self.tags = tags
         self._body = body
@@ -74,6 +53,10 @@ class Post(object):
     @property
     def excerpt(self):
         return self.body.split(self.excerpt_marker)[0]
+
+    @property
+    def path(self):
+        return self.slug[:-3]
 
     def to_dict(self):
         return {"title": self.title, "body": self.body, "slug": self.slug,

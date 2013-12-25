@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <title>Ifthikhan: A Geeky Lion &raquo; {% block title %}{% endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='jumbotron-narrow.css') }}">
+
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <ul class="nav nav-pills pull-right">
+                    <!--<li class="active"><a href="/">Home</a></li>-->
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <h1 class="text-muted">Ifthikhan: A Geeky Lion</h1>
+            </div>
+
+            <div id="content">{% block content %}{% endblock %}</div>
+            <div class="footer">
+                {% block footer %}
+                &copy; Copyright 2013
+                {% endblock %}
+            </div>
+        </div>
+        <!-- .container -->
+    </body>
+</html>

@@ -1,4 +1,4 @@
-Title: "Users" in the right perspective…
+Title: "Users" in the right perspective
 Published: 9-11-2011
 Tags: Wise
 
