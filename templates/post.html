@@ -4,7 +4,7 @@
 
 {% block content %}
     <h2>{{ post.title }}</h2>
-    <p class="published">Posted on:
+    <p class="published">Written on:
     {{ post.published|date }}</p>
     {% autoescape false %} {{ post.body|youtube_embed|markdown }} {% endautoescape %}
     <!--<p> {{ post.tags }}-->
