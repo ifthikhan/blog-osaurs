@@ -1,7 +1,7 @@
 Title: Ignoring files in git
 Published: 26-12-2013
 Tags: Git
-private: true
+Visibility: private
 
 Ignoring files in git is very simple, add the pattern to a ".gitignore" file.
 Everytime I create a new repo I have to go through the motion of creating a new

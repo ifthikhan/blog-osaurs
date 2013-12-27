@@ -5,7 +5,7 @@ from collections import defaultdict
 from datetime import datetime
 import re
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, abort
 from flaskext.markdown import Markdown
 
 
@@ -13,6 +13,9 @@ POSTS_PATH = "posts"
 
 app = Flask(__name__)
 Markdown(app)
+
+
+PRIVATE_POST_SECRET = "unlock"
 
 
 def sub_youtube_link(content, sub=None):
@@ -49,10 +52,17 @@ def _jinja_datetime_filter(date, fmt=None):
     return date.strftime(fmt)
 
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
 
 @app.route("/", methods=['GET'])
 def home():
     posts = _get_posts_list()
+    if not _display_private_posts():
+        posts = [p for p in posts if not p.is_private]
+
     posts = sorted(posts, key=lambda p: p.published, reverse=True)
     return render_template("home.html", posts=posts)
 
@@ -60,7 +70,15 @@ def home():
 @app.route("/posts/<slug>", methods=['GET'])
 def display_post(slug):
     post = Post.from_file("{}.md".format(slug))
+    if not _display_private_posts() and post.is_private:
+        abort(404)
     return render_template("post.html", post=post)
+
+
+def _display_private_posts():
+    if request.args.get('secret', None) == PRIVATE_POST_SECRET:
+        return True
+    return False
 
 
 def _get_posts_list():
@@ -70,13 +88,19 @@ def _get_posts_list():
 
 class Post(object):
 
-    def __init__(self, title, body, slug, published, tags):
+    VISIBILITY_PRIVATE = 'private'
+
+    def __init__(self, title, body, slug, published, tags, visibility=None):
         self.title = title
         self.slug = slug
-        self.published = datetime.strptime(published,
-                                           "%d-%m-%Y")
+        self.published = datetime.strptime(published, "%d-%m-%Y")
         self.tags = tags
         self.body = body
+        self.visibility = visibility
+
+    @property
+    def is_private(self):
+        return True if self.visibility == self.VISIBILITY_PRIVATE else False
 
     @property
     def excerpt_marker(self):
@@ -105,8 +129,11 @@ class Post(object):
         out["title"] = lines.pop(0).split(":")[1]
         out["published"] = lines.pop(0).split(":")[1]
         out["tags"] = lines.pop(0).split(":")[1]
-        out["body"] = "\n".join(lines)
 
+        if lines[0].startswith("Visibility"):
+            out["visibility"] = lines.pop(0).split(":")[1]
+
+        out["body"] = "\n".join(lines)
         out = {k: v.strip() for k, v in out.items()}
         return out
 
