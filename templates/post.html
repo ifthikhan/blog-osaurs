@@ -7,5 +7,4 @@
     <p class="published">Written on:
     {{ post.published|date }}</p>
     {% autoescape false %} {{ post.body|youtube_embed|markdown }} {% endautoescape %}
-    <!--<p> {{ post.tags }}-->
 {% endblock %}
