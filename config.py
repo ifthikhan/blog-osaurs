@@ -3,3 +3,5 @@
 
 POSTS_PATH = "posts"
 PRIVATE_POST_SECRET = "unlock"
+ENV = "development"
+ENV_LIVE = "live"

@@ -7,7 +7,7 @@ import re
 
 from flask import Flask, render_template, request, abort
 from flaskext.markdown import Markdown
-from config import POSTS_PATH, PRIVATE_POST_SECRET
+import config
 
 
 app = Flask(__name__)
@@ -33,6 +33,11 @@ def sub_youtube_link(content, sub=None):
         return sub.format(matchobj.group(1))
 
     return re.sub(pattern, repl, content, flags=re.IGNORECASE)
+
+
+@app.context_processor
+def inject_config_vars():
+    return {"ENV": config.ENV, "ENV_LIVE": config.ENV_LIVE}
 
 
 @app.template_filter('youtube_embed')
@@ -72,13 +77,13 @@ def display_post(slug):
 
 
 def _display_private_posts():
-    if request.args.get('secret', None) == PRIVATE_POST_SECRET:
+    if request.args.get('secret', None) == config.PRIVATE_POST_SECRET:
         return True
     return False
 
 
 def _get_posts_list():
-    return [Post.from_file(f) for f in os.listdir(POSTS_PATH)
+    return [Post.from_file(f) for f in os.listdir(config.POSTS_PATH)
             if f.endswith("md")]
 
 
@@ -117,7 +122,7 @@ class Post(object):
     @classmethod
     def from_file(cls, filename):
         #TODO: Sanitize the filename
-        data = open("{}/{}".format(POSTS_PATH, filename)).read()
+        data = open("{}/{}".format(config.POSTS_PATH, filename)).read()
         post_map = cls.parse_from_str(data)
         post_map["slug"] = filename
         return cls(**post_map)
