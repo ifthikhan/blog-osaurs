@@ -8,8 +8,8 @@ Everytime I create a new repo I have to go through the motion of creating a new
 ignore file and add the types of files to be ignored.
 
 As I was going through these motions today I decided to investigate if git has an
-option to globally ignore files across local repositories. The results I saw were quite
-amazing. It has more options than I thought and fits all my use cases
+option to globally ignore files across local repositories. The results I came
+across were quite amazing. It has more options than I thought and fits all my use cases
 perfectly (beautiful by design). I have listed each of the options below:
 
 * .gitignore
