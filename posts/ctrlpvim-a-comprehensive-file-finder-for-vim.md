@@ -27,7 +27,7 @@ attention. Used it for a day at home and the last few days I have been using at
 work and am quite impressed with it.
 
 When compared to the alternatives mentioned above,
-[Ctrlp](http://kien.github.com/ctrlp.vim/) seems to be the most
+**[Ctrlp](http://kien.github.com/ctrlp.vim/)** seems to be the most
 comprehensive file finder vim plugin. Why? (I hear you ask)
 
 ###File or Path Search
