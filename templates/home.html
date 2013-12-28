@@ -10,8 +10,10 @@
             <p class="published">Written on:
             {{ post.published|date }}</p>
             {% autoescape false %} {{ post.excerpt|youtube_embed|markdown }} {% endautoescape %}
+            {% if post.has_excerpt %}
             <p><a href="/posts/{{ post.path}}">More &raquo;</a>
-            <!--<p>Tags: {{ post.tags }}</p>-->
+            {% endif %}
+            <!--<p class="tags">Tags: {{ post.tags }}</p>-->
         </li>
     {% endfor %}
     </ol>

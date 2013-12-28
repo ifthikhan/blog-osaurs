@@ -103,6 +103,10 @@ class Post(object):
         return "<more/>"
 
     @property
+    def has_excerpt(self):
+        return self.excerpt_marker in self.body
+
+    @property
     def excerpt(self):
         return self.body.split(self.excerpt_marker)[0]
 
