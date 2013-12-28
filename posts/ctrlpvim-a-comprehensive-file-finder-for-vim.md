@@ -30,17 +30,17 @@ When compared to the alternatives mentioned above,
 [Ctrlp](http://kien.github.com/ctrlp.vim/) seems to be the most
 comprehensive file finder vim plugin. Why? (I hear you ask)
 
-###File or Path Search:
+###File or Path Search
 While searching for a file one either remembers the name of the file or the
 path of the file. In Ctrlp you can specify whether you are searching for a file
 and it scans the file name index or alternatively a path can be specified. It
 autocompletes path names.
 
-###Regex in Search:
+###Regex in Search
 Most of the times we don't remember the entire file name or the path. Regex
 comes to the rescure here. It supports vim regex syntax.
 
-###Searching for files in Buffer or MRU List:
+###Searching for files in Buffer or MRU List
 VIM users use buffers instead of opening a large number of tabs. Search can be
 performed within the buffer. Further it maintains a list of mostly recently
 used files and searches can be performed within the MRU list as well.
@@ -49,16 +49,16 @@ I find the above three features as the most essentials ones and this plugin
 does it in a robust manner. However, in addition to the above it offers a few
 extra which sweetens the deal:
 
-###Multiple File Selection:
+###Multiple File Selection
 During a search you could select multiple files and open them in either in
 split (horizontal or vertical) windows or tabs. Further after selecting
 mutliple files you could type ":diffthis" in the prompt and view a diff of all
 the selected files.
 
-###Create and delete files.
+###Create and delete files
 Yeah, you heard me right ;).
 
-###Using yanked text in search:
+###Using yanked text in search
 The yanked text can be pasted in the search prompt.
 
 A noticeable issue with this tools is that the first time Ctrlp buffer is
