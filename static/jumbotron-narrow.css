@@ -89,10 +89,15 @@ body {
     padding-left: 0;
 }
 
-#posts li {
+#posts > li {
     margin-bottom: 30px;
     padding-bottom: 10px;
     border-bottom: 1px solid #e3e3e3;
+}
+
+#posts > li li, #content li{
+    margin-top: 5px;
+    list-style-position: outside;
 }
 
 .published {
@@ -102,3 +107,6 @@ body {
     margin-bottom: 20px;
 }
 
+h3, .h3 {
+    font-size: 20px;
+}

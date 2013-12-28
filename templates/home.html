@@ -6,7 +6,7 @@
     <ol id="posts">
     {% for post in posts %}
         <li>
-            <h3><a href="/posts/{{ post.path}}">{{ post.title }}</a></h3>
+            <h2><a href="/posts/{{ post.path}}">{{ post.title }}</a></h2>
             <p class="published">Written on:
             {{ post.published|date }}</p>
             {% autoescape false %} {{ post.excerpt|youtube_embed|markdown }} {% endautoescape %}
