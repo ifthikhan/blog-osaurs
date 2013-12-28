@@ -7,15 +7,11 @@ import re
 
 from flask import Flask, render_template, request, abort
 from flaskext.markdown import Markdown
+from config import POSTS_PATH, PRIVATE_POST_SECRET
 
-
-POSTS_PATH = "posts"
 
 app = Flask(__name__)
 Markdown(app)
-
-
-PRIVATE_POST_SECRET = "unlock"
 
 
 def sub_youtube_link(content, sub=None):
