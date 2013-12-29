@@ -17,6 +17,8 @@ perfectly (beautiful by design). I have listed each of the options below:
 * Local repository exclude
 * Ignore versioned files
 
+<more/>
+
 ###.gitignore
 Good ole `.gitignore` file we are all familiar with. This file is
 available for every repo and is committed and **shared by everyone** cloning the
