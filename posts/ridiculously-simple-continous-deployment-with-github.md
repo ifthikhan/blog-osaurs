@@ -17,7 +17,7 @@ changes. For a given post this might have to be done a few times and code
 changes have to be deployed the same. Automation was screaming at the top of
 it's voice and I new things had to change if my new found love was to sustain.
 
- <more/>
+<more/>
 
 ###Git Web Hooks
 Going through github I came across [git web
