@@ -1,7 +1,7 @@
 Title: Ridiculously Simple Continous Integration with Github
 Published: 29-12-2013
 Tags: Git, Linux
-Visibility: private
+Visibility: public
 
 Yep you heard it right, it's extremely simple!
 
@@ -16,6 +16,8 @@ write, push the changeset to github, login into my server and pull the
 changes. For a given post this might have to be done a few times and code
 changes have to be deployed the same. Automation was screaming at the top of
 it's voice and I new things had to change if my new found love was to sustain.
+
+ <more />
 
 ###Git Web Hooks
 Going through github I came across [git web
