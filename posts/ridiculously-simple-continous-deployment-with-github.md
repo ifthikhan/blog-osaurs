@@ -1,5 +1,6 @@
-Title: About
-Published: 01-01-1970
-Tags: About
+Title: Ridiculously Simple Continous Integration with Github
+Published: 29-12-2013
+Tags: Git, Linux
+Visibility: private
 
-Still writing :(
+Under process!!!
