@@ -1,4 +1,4 @@
-Title: Ridiculously Simple Continous Integration with Github
+Title: Ridiculously Simple Continuous Deployment with Github
 Published: 29-12-2013
 Tags: Git, Linux
 Visibility: public
