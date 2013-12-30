@@ -2,7 +2,7 @@ Title: The Python Object Model By Alex Martelli
 Published: 06-10-2012
 Tags: Python, Video
 
-[Video](http://youtu.be/VOzvpHoYQoo)
+http://youtu.be/VOzvpHoYQoo
 
 A great presentation by Alex Martelli where he describes python's object model
 in detail. The talk is divided into 4 major parts:
