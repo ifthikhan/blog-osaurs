@@ -27,18 +27,17 @@ for a vimrc file the moment it finds the first one the only option I had was to
 find a way to source the vimrc extended file `.vimrcx` within the main vimrc
 file if it is present in the home directory.
 
-```
-function! GetHomeDir()
-    return system('echo -n $HOME')
-    endfunction
+    function! GetHomeDir()
+        return system('echo -n $HOME')
+        endfunction
+    
+    " Add a file named ~/.vimrcx in the home directory to override vimrc settings
+    " specific to the current host
+    let g:if_extended_vimrc = GetHomeDir() . '/.vimrcx'
+    if filereadable(g:if_extended_vimrc)
+        so `=g:if_extended_vimrc`
+    endif
 
-" Add a file named ~/.vimrcx in the home directory to override vimrc settings
-" specific to the current host
-let g:if_extended_vimrc = GetHomeDir() . '/.vimrcx'
-if filereadable(g:if_extended_vimrc)
-    so `=g:if_extended_vimrc`
-endif
-```
 
 Although the above snippet is quite simple I discovered a couple of nifty features to pull it off.
 
@@ -52,26 +51,25 @@ Once the above is in place, I can conditionally set-up trailing whitespaces in
 the following way.
 
 The following is my vimrc:
-```
-function! StripTrailingSpaces()
-    exe "normal ma"
-    %s/\s\+$//e
-    exe "normal `a"
-endfunction
 
-function! ThouShaltTryStrippingIt()
-    if exists('g:ifrc_strip_trail_spaces') && g:ifrc_strip_trail_spaces == 1
-        call StripTrailingSpaces()
-    endif
-endfunction
+    function! StripTrailingSpaces()
+        exe "normal ma"
+        %s/\s\+$//e
+        exe "normal `a"
+    endfunction
+    
+    function! ThouShaltTryStrippingIt()
+        if exists('g:ifrc_strip_trail_spaces') && g:ifrc_strip_trail_spaces == 1
+            call StripTrailingSpaces()
+        endif
+    endfunction
+    
+    autocmd BufWritePre * call ThouShaltTryStrippingIt()
 
-autocmd BufWritePre * call ThouShaltTryStrippingIt()
-```
 I add the below snippet to `.vimrx` and enable the feature.
 
-```
-g:ifrc_strip_trail_spaces
-```
+
+    g:ifrc_strip_trail_spaces
 
 With `.vimrcx` any of the vim options can be set, unset or altered to suite the
 environment I am working on.
