@@ -1,20 +1,37 @@
-Title: Extending vimrc to another file
+Title: VimrcX: Vimrc and <em>BEYOND</em>
 Published: 31-01-2014
 Tags: Vim
 Visibility: private
 
-My vimrc is hosted on github and I pull it on the multiple environments that I
-work on. These environments include home laptop, the desktop at work and
-within the cloud instances where I perform a large portion of my work. In some
-of these environments minor changes to the setting is required and keeping
-multiple versions of the file is a headache and further altering after pulling
-and then stashing the rc on each  pull or prior to making changes for push is a
-headache. To get rid of this hassle I wanted to create another file where I
-could add these additional host specific configurations
+Usually vim users have their own vimrc file which they use it on all their development environments. I am no exception either, my .vimrc is hosted on Github and spend countless of hours tweaking it.
 
-It turns out that there vim will only read one vimrc file and stop the search.
-I started hacking out a few snippets in the rc file. The idea is quite simple
-check for the existence of a particular file and if available source it.
+###Ubquity
+I work on multiple hosts every day. I have my laptop at home, laptop at work, desktop at work as well the cloud instance where most of the actual development take place. All these instances have my vimrc and it makes developing in each of these environments a seamless experience.
+
+###Customization craze
+However it turns out that for the ultimate annoyance free editing each of these environment demands it's own tweak. It could be special dirs to be excluded so that wild menu, ctrlp or ack does not display these unwanted options, indentation settings, not stripping trailing whitespaces as it messes up commits with unwanted changes (real pain!) etc...
+
+###VimrcX
+Since each host requires it's own special tweak a plugin will not work. I decided to try extending vimrc to another file. Since vim will stop searching for a vimrc file the moment it finds the first one the only option I had was to find a way to source the vimrc extended file `.vimrcx` within the main vimrc file if it is present in the home directory. 
+
+```
+function! GetHomeDir()
+    return system('echo -n $HOME')
+    endfunction
+
+" Add a file named ~/.vimrcx in the home directory to override vimrc settings
+" specific to the current host
+let g:if_extended_vimrc = GetHomeDir() . '/.vimrcx'
+if filereadable(g:if_extended_vimrc)
+    so `=g:if_extended_vimrc`
+endif
+```
+
+Although the above snippet is quite simple I discovered a couple of nifty features to pull it off.
+
+*  system('echo -n $HOME'): The system function executes a shell command and returns the output so it can be stored in a variable.
+*
+
 
 For example if I have the following snippet in my vimrc
 
