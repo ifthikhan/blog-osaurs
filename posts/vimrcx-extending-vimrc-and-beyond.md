@@ -10,8 +10,8 @@ taming it to one's own needs and desires. A manifestation of this effort is my
 ###Vim everywhere
 I work on multiple hosts every day. Laptop at home, laptop at work,
 desktop at work as well the virtual machine where most of the work related
-development takes place. All these instances have my vimrc and moving from one
-to the other is a seamless experience!
+development takes place. All these instances have my [vimrc][rc] and moving
+from one to the other is a seamless experience!
 
 ###Customization craze
 However, it turns out that for the *ultimate annoyance free editing* (if there
@@ -21,8 +21,8 @@ these unwanted options, indentation settings etc...
 
 ###VimrcX
 Since each host requires it's own special tweak a plugin will not work. I
-decided to try extending vimrc to another file. As Vim stops searching
-for a config once it encounters the first one the only option I had was to
+decided to try extending vimrc to another file. Vim stops searching
+for a config once it encounters the first one, so the only option I had was
 to source another file inside the current one.
 
 <more/>
@@ -45,9 +45,9 @@ it exists the file is sourced.
 Although the above snippet is quite simple I discovered a couple of nifty
 features in Vim to pull it off.
 
-- *system('echo -n $HOME'):* The system function executes a shell command and
+- `system('echo -n $HOME')`: The system function executes a shell command and
   returns the output so it can be stored in a variable.
-- *so `=g:if_extended_vimrc`:* Using backticks to expand vim expressions. When
+- `so ``=g:if_extended_vimrc```: Using backticks to expand vim expressions. When
   an expression is enclosed in backticks with an `=` at the beginning the
   expression is treated as a vim expression.
 
