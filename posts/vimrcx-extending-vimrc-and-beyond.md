@@ -47,7 +47,7 @@ features in Vim to pull it off.
 
 - `system('echo -n $HOME')`: The system function executes a shell command and
   returns the output so it can be stored in a variable.
-- `so ``=g:if_extended_vimrc`` `: Using backticks to expand vim expressions. When
+- `so `=g:if_extended_vimrc` `: Using backticks to expand vim expressions. When
   an expression is enclosed in backticks with an `=` at the beginning the
   expression is treated as a vim expression.
 
