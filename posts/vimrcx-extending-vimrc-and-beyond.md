@@ -1,4 +1,4 @@
-Title: VimrcX: extending Vimrc and <em>BEYOND</em>
+Title: VimrcX: extending Vimrc and BEYOND
 Published: 31-01-2014
 Tags: Vim
 Visibility: public
