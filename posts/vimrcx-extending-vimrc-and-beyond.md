@@ -5,7 +5,7 @@ Visibility: public
 
 Being a [Vim][v] addict, one develops a natural tendency to spend countless hours
 taming it to one's own needs and desires. A manifestation of this effort is my
-[vimrc][c] on [Github][gh].
+[vimrc][rc] on [Github][gh].
 
 ###Vim everywhere
 I work on multiple hosts every day. Laptop at home, laptop at work,
@@ -24,6 +24,8 @@ Since each host requires it's own special tweak a plugin will not work. I
 decided to try extending vimrc to another file. As Vim stops searching
 for a config once it encounters the first one the only option I had was to
 to source another file inside the current one.
+
+<more/>
 
 The snippet below looks for a file named `.vimrcx` in the user's home dir and if
 it exists the file is sourced.
