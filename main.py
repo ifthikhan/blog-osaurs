@@ -1,6 +1,6 @@
 """Main application module"""
 
-import os
+import os, re
 from collections import defaultdict
 from datetime import datetime
 import re
@@ -13,6 +13,11 @@ import config
 app = Flask(__name__)
 Markdown(app)
 
+_split = re.compile(r'[\0%s]' % re.escape(''.join(
+    [os.path.sep, os.path.altsep or ''])))
+
+def secure_filename(path):
+    return _split.sub('', path)
 
 def sub_youtube_link(content, sub=None):
     """Substitute youtube link with embed tags"""
@@ -121,8 +126,8 @@ class Post(object):
 
     @classmethod
     def from_file(cls, filename):
-        #TODO: Sanitize the filename
-        data = open("{}/{}".format(config.POSTS_PATH, filename)).read()
+        fn = secure_filename(filename)
+        data = open("{}/{}".format(config.POSTS_PATH, fn)).read()
         post_map = cls.parse_from_str(data)
         post_map["slug"] = filename
         return cls(**post_map)
