@@ -10,7 +10,7 @@ taming it to one's own needs and desires. A manifestation of this effort is my
 ###Vim everywhere
 I work on multiple hosts every day. Laptop at home, laptop at work,
 desktop at work as well the virtual machine where most of the work related
-development takes place. All these instances have my [vimrc][rc] and moving
+development takes place. These instances have my [vimrc][rc] and moving
 from one to the other is a seamless experience!
 
 ###Customization craze
@@ -20,7 +20,7 @@ dirs to be excluded so that wild menu, [ctrlp][cp] or [ack][av] does not display
 these unwanted options, indentation settings etc...
 
 ###VimrcX
-Since each host requires it's own special tweak a plugin will not work. I
+Since each host requires it's own special tweak, a plugin will not work. I
 decided to try extending vimrc to another file. Vim stops searching
 for a config once it encounters the first one, so the only option I had was
 to source another file inside the current one.
@@ -47,7 +47,7 @@ features in Vim to pull it off.
 
 - `system('echo -n $HOME')`: The system function executes a shell command and
   returns the output so it can be stored in a variable.
-- `so ``=g:if_extended_vimrc```: Using backticks to expand vim expressions. When
+- `so ``=g:if_extended_vimrc`` `: Using backticks to expand vim expressions. When
   an expression is enclosed in backticks with an `=` at the beginning the
   expression is treated as a vim expression.
 
