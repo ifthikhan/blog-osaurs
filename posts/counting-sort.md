@@ -5,7 +5,7 @@ Visibility: public
 
 Lately I have been reading [Steve Skiena's](http://en.wikipedia.org/wiki/Steven_Skiena) 
 [The Algorithm DesignManual](http://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1848000693)
-The chapter on Sorting and Searching has a few use cases of countingsort and wanted to impart a quick tip to detect when [CountingSort](http://en.wikipedia.org/wiki/Counting_sort) is screaming at the top of it's voice to be used :).
+The chapter on Sorting and Searching has a few use cases of [Counting Sort](http://en.wikipedia.org/wiki/Counting_sort) and wanted to impart a quick tip to detect when it's screaming at the top of it's voice to be used :).
 
 ###Detective
 
