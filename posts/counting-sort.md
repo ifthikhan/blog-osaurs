@@ -22,4 +22,8 @@ and recording each distinct value as a key in a dictionary and the number of
 occurences as its value. Once the iteration is complete the original list can
 be overwritten by replicating each key corresponding to the recorded value.
 
+A self balancing binary tree can be used instead of a dictionary which will
+allow to fetch the values in sorted order thus eliminating the step of sorting
+the keys when using a dictionary.
+
 Happy hacking :)
