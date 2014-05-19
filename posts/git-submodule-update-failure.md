@@ -43,7 +43,7 @@ The solution in itself is simple and one can't help but feel a bit stupid.
 However, the reason I least expected this chain of alterations was that I did
 not expect such duplications in a high quality utility such as git. Initially I
 was suprised and disappointed at the same time but to reason this duplication
-might prove to be interesting and perhaps would result in another short post :).
+might prove to be interesting be  and perhaps would result in another short post :).
 
 [c]: http://en.wikipedia.org/wiki/Command-line_interface
 [s]: http://en.wikipedia.org/wiki/Secure_Shell
