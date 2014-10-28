@@ -52,8 +52,8 @@ compiling using gcc.
 
 
 ###References
-* http://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion
-* http://linux.byexamples.com/archives/30/smart-grouping-shorten-long-command-line/
+* [http://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion]
+* [http://linux.byexamples.com/archives/30/smart-grouping-shorten-long-command-line/]
 
 
 
