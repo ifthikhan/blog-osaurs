@@ -50,6 +50,13 @@ compiling using gcc.
 
     $ gcc -o hello{,.c}
 
+Multiple file uploads using scp
+
+    $ scp file{1,2,3,4} remotehost:/uploads/
+    
+Grepping in multiple directories
+
+    $ grep some-pattern /usr/{dir1, dir2}/
 
 ###References
 * [http://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion](http://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion)
