@@ -60,6 +60,7 @@ Grepping in multiple directories
 
 Creating nested directories.
 
+    $ mkdir -pv file{1,2/{1,2},3}
     mkdir: created directory ‘file1’
     mkdir: created directory ‘file2’
     mkdir: created directory ‘file2/1’
