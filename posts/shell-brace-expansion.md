@@ -53,11 +53,11 @@ compiling using gcc.
 Multiple file uploads using scp
 
     $ scp file{1,2,3,4} remotehost:/uploads/
-    
+
 Grepping in multiple directories
 
     $ grep some-pattern /usr/{dir1, dir2}/
-    
+
 Creating nested directories.
 
     $ mkdir -pv file{1,2/{1,2},3}
