@@ -61,11 +61,11 @@ Grepping in multiple directories
 Creating nested directories.
 
     $ mkdir -pv file{1,2/{1,2},3}
-    mkdir: created directory ‘file1’
-    mkdir: created directory ‘file2’
-    mkdir: created directory ‘file2/1’
-    mkdir: created directory ‘file2/2’
-    mkdir: created directory ‘file3’
+    mkdir: created directory 'file1'
+    mkdir: created directory 'file2'
+    mkdir: created directory 'file2/1'
+    mkdir: created directory 'file2/2'
+    mkdir: created directory 'file3'
 
 ###References
 * [http://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion](http://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion)
