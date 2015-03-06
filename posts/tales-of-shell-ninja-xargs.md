@@ -4,7 +4,7 @@ Tags: CLI
 
 Every once in a while I discover nifty features of shell and have been itching to share :). Here goes the first in a serieis of **shell** tales.
 
-[XARGS][x] is usually used when the output of a command which is `\n` seperated needs to be the input of another command. Passing the command the and piped input to `xarg` it builds the input and pass it to the given command.
+[XARGS][x] is usually used when the output of a command which is `\n` seperated needs to be the input of another command. Passing the command the and piped input to `xargs` it builds the input and pass it to the given command.
 
     $ seq 10 | xargs echo ">>"
     >> 1 2 3 4 5 6 7 8 9 10-
